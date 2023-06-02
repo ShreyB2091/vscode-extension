@@ -68,14 +68,6 @@ function activate(context) {
         auth: process.env.GITHUB_REFERENCE_TOKEN
       });
       
-      // const response = await octokit.request('GET /repos/{owner}/{repo}/commits', {
-      //   owner: owner,
-      //   repo: repo,
-      //   headers: {
-      //     'X-GitHub-Api-Version': '2022-11-28',
-      //     'accept': 'application/vnd.github+json'
-      //   }
-      // });
       const response = await octokit.rest.repos.listCommits({
         owner: owner,
         repo: repo,
@@ -99,10 +91,6 @@ function activate(context) {
     const commit = await getLatestCommit(path);
     const author = await commit.commit.author;
     const commitMessage = `Latest commit by ${author.name} on ${author.date}`;
-    // const activeEditor = vscode.window.activeTextEditor;
-    // if (activeEditor) {
-    //   activeEditor.setDecorations(decorationType, []);
-    // }
     showTextBoxAtLine(commitMessage, selectedLine);
   });
 
