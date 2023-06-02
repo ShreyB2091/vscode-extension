@@ -19,6 +19,10 @@
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ShreyB2091/vscode-extension.git"
+  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
