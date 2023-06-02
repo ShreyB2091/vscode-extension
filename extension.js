@@ -35,6 +35,7 @@ function activate(context) {
 			}
 
 			const currentRepo = gitAPI.repositories[0];
+      console.log(currentRepo.state);
       const branch = currentRepo.state.a.u.name;
 			const remote = await currentRepo.state.remotes.find(
 				(remote) => remote.name === "origin" && remote.fetchUrl.includes("github.com")
@@ -87,7 +88,7 @@ function activate(context) {
         const data = commitResponse.data;
         commitData = [...commitData, data];
       }
-      // console.log(commits);
+      console.log(commitData);
     }
   );
 
@@ -95,7 +96,7 @@ function activate(context) {
     const selectedLine = event.selections[0].active.line;
     const filePath = vscode.window.activeTextEditor.document.uri.fsPath;
     const path = vscode.workspace.asRelativePath(filePath, false);
-    const commit = await getLatestCommit(path, selectedLine);
+    const commit = await getLatestCommit(path);
     const author = await commit.commit.author;
     const commitMessage = `Latest commit by ${author.name} on ${author.date}`;
     // const activeEditor = vscode.window.activeTextEditor;
@@ -149,17 +150,13 @@ function showTextBoxAtLine(text, line) {
   }
 }
 
-async function getLatestCommit(path, line) {
+async function getLatestCommit(path) {
   try {
     for (const data of commitData) {
-      // const commitUrl = commit.url;
-      // const commitResponse = await axios.get(commitUrl);
-      // const commitData = commitResponse.data;
       const files = data.files;
-
       for (const file of files) {
         if (file.filename === path) {
-          return commit;
+          return data;
         }
       }
     }
