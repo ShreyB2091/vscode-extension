@@ -9,6 +9,7 @@ async function getLatestCommit(path, selectedLine) {
     console.log(lineInfo[selectedLine]);
     const line = lineInfo[selectedLine];
 
+    // Check if commit for the line exists or not
     if(line.includes('Not Committed Yet') && line.includes('00000000')) return null;
 
     const usernameRegex = /\((.*?)\s/;
@@ -25,7 +26,7 @@ async function getLatestCommit(path, selectedLine) {
       return {name: username, date: time};
     }
   } catch (error) {
-    vscode.window.showErrorMessage('Failed to fetch Git history.');
+    vscode.window.showErrorMessage('Failed to fetch Git History.');
     console.error(error);
   }
 }

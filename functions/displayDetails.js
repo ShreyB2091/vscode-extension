@@ -26,6 +26,7 @@ function showTextBoxAtLine(text, line) {
     const decoration = { range };
     activeEditor.setDecorations(decorationType, [decoration]);
 
+    // Setting 2 second timeout for displaying the commit log message
     setTimeout(() => {
       if (activeEditor) {
         activeEditor.setDecorations(decorationType, []);
