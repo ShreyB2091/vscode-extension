@@ -1,6 +1,7 @@
 {
   "name": "gitlinetrace",
   "displayName": "Git Line Trace",
+  "type": "commonjs",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,8 +15,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "gitlinetrace.checkRepo",
-        "title": "Git Line Trace"
+        "command": "gitlinetrace.showHistory",
+        "title": "Show History"
       }
     ]
   },
@@ -38,10 +39,5 @@
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "@octokit/rest": "^19.0.11",
-    "axios": "^1.4.0",
-    "octokit": "^2.0.19"
   }
 }
