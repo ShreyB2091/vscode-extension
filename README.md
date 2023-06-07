@@ -13,3 +13,7 @@ To load the extension, you need to copy the files to your VS Code extensions fol
 * **Windows** `%USERPROFILE%\.vscode\extensions`
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
+
+## Usage
+
+To activate the extension, first open the command palette using ``Ctrl + Shift + P`` then run the command ``Show History``
