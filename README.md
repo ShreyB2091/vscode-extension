@@ -1,5 +1,6 @@
 # Git Line Trace README
 
+Find out the details of the latest commit corresponding to any line of a file in your git repo. You can see who made the commit and when it was made.<br/>
 Clone this repository in your local machine to use the extension.
 
 ## Installation
